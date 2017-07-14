@@ -6,3 +6,11 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   exitWithMessageOnError "npm failed"
   cd - > /dev/null
 fi  
+
+# 4. Angular Prod Build
+if [ -e "$DEPLOYMENT_TARGET/.angular-cli.json" ]; then  
+  cd "$DEPLOYMENT_TARGET"
+  eval ./node_modules/.bin/ng build --prod
+  exitWithMessageOnError "Angular build failed"
+  cd - > /dev/null
+fi  
