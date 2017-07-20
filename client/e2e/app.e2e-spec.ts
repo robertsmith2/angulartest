@@ -8,6 +8,7 @@ describe('azurefun App', () => {
   });
 
   it('should display welcome message', () => {
+    console.log(process.env);
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
